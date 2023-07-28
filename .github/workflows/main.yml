@@ -24,4 +24,4 @@ jobs:
       uses: docker/build-push-action@v4
       with:
        push: true
-       tags: shubhamborkar/ecom_cart:${{ secrets.VERSION }}
+       tags: shubhamborkar/ecom_cart:$(docker images | $(awk '{print $2 += .1; exit}')
