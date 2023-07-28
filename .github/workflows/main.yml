@@ -24,4 +24,4 @@ jobs:
       uses: docker/build-push-action@v4
       with:
        push: true
-       tags: shubhamborkar/ecom_cart:${{ variables.VERSION }}
+       tags: shubhamborkar/ecom_cart:${{ secrets.VERSION }}
