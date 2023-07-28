@@ -24,4 +24,4 @@ jobs:
       uses: docker/build-push-action@v4
       with:
        push: true
-       tags: shubhamborkar/ecom_cart:$(docker images | $(awk '{print $2 += .1; exit}')
+       tags: shubhamborkar/ecom_cart:$(docker images | echo $(awk '($1 == "shubhamborkar/ecom_cart") {print $2 += .1; exit}')
