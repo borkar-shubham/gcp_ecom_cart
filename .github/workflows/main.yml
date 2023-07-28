@@ -18,13 +18,10 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@v2
       with:
-       username: shubhamborkar #${{ secrets.DOCKERHUB_USERNAME }}
+       username: ${{ secrets.DOCKERHUB_USERNAME }}
        password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Push Image
-      run: docker tag shubhamborkar/ecom_cart:$(docker images | echo $(awk '($1 == "shubhamborkar/ecom_cart") {print $2 += .1; exit}')
-      run: docker push shubhamborkar/ecom_cart:$(docker images | echo $(awk '($1 == "shubhamborkar/ecom_cart") {print $2 += .1; exit}')
-#     - name: Build and push
-#       uses: docker/build-push-action@v4
-#       with:
-#        push: true
-#        tags: shubhamborkar/ecom_cart: 
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+       push: true
+       tags: shubhamborkar/ecom_cart:v1.1
